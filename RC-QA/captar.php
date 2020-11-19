@@ -1,4 +1,4 @@
-<?php
+ <?php
 if (isset($_POST['dimensao'])>0 && isset($_POST['inicio'])>0 && isset($_POST['fim'])) {
  
  	
@@ -17,7 +17,34 @@ for ($i=0; $i <$Dim ; $i++) {
 	echo  $num[$i].' ';	
 	$soma=$soma+$num[$i];
 	$produto=$soma*$num[$i];
-	$media=$soma/$Dim;
+	
+}
+
+$media=$soma/$Dim;
+$trocou=true;
+echo "<br>Array oordenado <br>";
+
+
+
+
+
+
+while ($trocou) {
+	$trocou=false;
+
+for ($i=0; $i <$Dim-1; $i++) { 
+	if ($num[$i]>$num[$i+1]) {
+		$trocou=true;
+		$troca=$num[$i];
+		$num[$i]=$num[$i+1];
+		$num[$i+1]=$troca;
+		
+	}
+}
+}
+for ($i=0; $i <$Dim ; $i++) { 
+	echo  $num[$i].'<br> ';	
+
 }
 
 
@@ -32,9 +59,10 @@ foreach ($num as $chave => $num) {
 	}
 	
 }
-echo "A soma é: " .$soma. "<br>";
+echo "<br>A soma é: " .$soma. "<br>";
 echo "O produto é: ".$produto. "<br>";
 echo "A media é: ".$media;
+
 
 
 
